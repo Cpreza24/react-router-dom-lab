@@ -4,14 +4,9 @@ import { useState } from 'react';
 function MailboxForm() {
   const [name, setName] = useState('');
   const [boxSize, setBoxSize] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('submit button clicked');
-  };
-
-  const handleChange = (e) => {
-    console.log(e.target.value);
   };
 
   return (
@@ -22,14 +17,14 @@ function MailboxForm() {
         <input
           type='text'
           placeholder='enter your name'
-          onChange={handleChange}
+          onChange={(e) => setName(e.target.value)}
         />
         <label htmlFor='box-size'>Size</label>
         <select
           name='box-size'
           id='box-size'
           placeholder='Small'
-          onChange={handleChange}
+          onChange={(e) => setBoxSize(e.target.value)}
         >
           <option value='small'>Small</option>
           <option value='medium'>Medium</option>
