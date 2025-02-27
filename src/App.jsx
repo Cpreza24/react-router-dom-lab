@@ -18,7 +18,6 @@ const App = () => {
     };
     setMail([...mail, newMail]);
   };
-  console.log(mail);
   return (
     <>
       <NavBar />
@@ -29,7 +28,10 @@ const App = () => {
           path='/new-mailbox'
           element={<MailboxForm addMail={addMail} />}
         />
-        <Route path='/mailboxes/:mailboxId' element={<MailboxDetails />} />
+        <Route
+          path='/mailboxes/:mailboxId'
+          element={<MailboxDetails mail={mail} />}
+        />
       </Routes>
     </>
   );

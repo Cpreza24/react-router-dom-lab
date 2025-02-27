@@ -1,7 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 function MailboxForm({ addMail }) {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [boxSize, setBoxSize] = useState('small');
 
@@ -10,6 +11,7 @@ function MailboxForm({ addMail }) {
     addMail(name, boxSize);
     setName('');
     setBoxSize('small');
+    navigate('/mailboxes');
   };
 
   return (
