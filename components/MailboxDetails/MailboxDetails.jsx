@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import './MailboxDetails.css';
 
 function MailboxDetails({ mail }) {
   const { mailboxId } = useParams();
@@ -10,11 +11,13 @@ function MailboxDetails({ mail }) {
   }
 
   return (
-    <div>
+    <div className='details-container'>
       <h1>Mailbox Details</h1>
-      <h2>Box Owner: {mailbox.name}</h2>
-      <p>Box ID: {mailbox.id}</p>
-      <p>Size: {mailbox.boxSize}</p>
+      <div className='detail-items-container'>
+        <h2>Box Owner: {mailbox.name}</h2>
+        <p>Box ID: {mailbox.id}</p>
+        <p>Size: {mailbox.boxSize}</p>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,9 @@
+a {
+  color: rgb(97, 97, 233);
+  font-family: sans-serif;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-evenly;
+}

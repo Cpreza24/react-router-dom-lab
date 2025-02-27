@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router';
-import MailboxForm from '../MailboxForm/MailboxForm';
+import './MailboxList.css';
 
 function MailboxList({ mail }) {
   return (
     <div>
       <h1>MailBox List</h1>
-      <div className='mail-container'>
+      <div className='box-container'>
         {mail.map((item, index) => (
-          <div key={index}>
+          <div className='mailbox-items' key={index}>
             <h2>
-              <Link to={`/mailboxes/${item.id}`}>{item.name} </Link>
+              <Link className='box-link' to={`/mailboxes/${item.id}`}>
+                {item.name} {item.id}
+              </Link>
             </h2>
           </div>
         ))}
