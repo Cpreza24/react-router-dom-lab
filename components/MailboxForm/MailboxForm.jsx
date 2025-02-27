@@ -1,12 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 
-function MailboxForm() {
+function MailboxForm({ addMail }) {
   const [name, setName] = useState('');
-  const [boxSize, setBoxSize] = useState('');
+  const [boxSize, setBoxSize] = useState('small');
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit button clicked');
+    addMail(name, boxSize);
+    setName('');
+    setBoxSize('small');
   };
 
   return (
@@ -17,14 +20,18 @@ function MailboxForm() {
         <input
           type='text'
           placeholder='enter your name'
+          value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <label htmlFor='box-size'>Size</label>
         <select
           name='box-size'
           id='box-size'
           placeholder='Small'
+          value={boxSize}
           onChange={(e) => setBoxSize(e.target.value)}
+          required
         >
           <option value='small'>Small</option>
           <option value='medium'>Medium</option>
